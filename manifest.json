@@ -1,0 +1,33 @@
+{
+    "manifest_version": 2,
+    "version": "1.0.1",
+    "name": "GetLeetcodeQuestion",
+    "description": "便捷获取Leetcode的题目信息",
+    "icons":
+    {
+        "16": "img/leetcode.png",
+        "48": "img/leetcode.png",
+        "128": "img/leetcode.png"
+    },
+    "homepage_url": "https://vonsdite.cn",
+    "web_accessible_resources": ["js/inject.js", "js/jquery.min.js", "js/hullabaloo.min.js", "css/bootstrap.min.css"],
+    "background":
+    {
+        "scripts": ["js/background.js"],
+        "persistent": false
+    },
+    "permissions": ["declarativeContent"],
+    "page_action":
+    {
+        "default_icon": "img/leetcode.png",
+        "default_title": "GetLeetcodeQuestion"
+    }, 
+    "content_scripts": 
+    [
+        {
+            "matches": ["*://leetcode.com/problems/*/"],
+            "js": ["js/content-script.js"],
+            "run_at": "document_start"
+        }
+    ]
+}
